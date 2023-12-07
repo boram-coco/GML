@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.283">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>GML</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">GML</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">GML</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="graph">graph <span class="quarto-category-count">(20)</span></div></div></div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="graph" data-listing-date-sort="1682607600000" data-listing-file-modified-sort="1701944184913" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/9999.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/9999.html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래에 대한 그래프 분석(교수님)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/9999.html">
+<div class="listing-description">
+5 rows × 23 columns
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/9999.html">
+<div class="listing-date">
+Apr 28, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8(logistic-amt+time+citypop+lat+merchlat).html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(logistic-amt+time+citypop+lat+merchlat).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(로지스틱amt+time+city_pop+lat+merch_lat-f1:0.985323)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(logistic-amt+time+citypop+lat+merchlat).html">
+<div class="listing-description">
+<code>merch_lat</code>과 <code>merch_long</code> 은 상점의 위도 경도, 위의 lat과 long은 고객의 ??
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(logistic-amt+time+citypop+lat+merchlat).html">
+<div class="listing-date">
+Apr 27, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8(logistic, amt+time).html"> <p class="card-img-top"><img src="posts/graph8(logistic, amt+time)_files/figure-html/cell-13-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(logistic, amt+time).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(로지스틱amt+time-f1:0.009370)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(logistic, amt+time).html">
+<div class="listing-description">
+그래프상 시간을 3등분 하거나 2등분 해서 적합시키면 좋을 거 같다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(logistic, amt+time).html">
+<div class="listing-date">
+Apr 27, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8(logistic-amt+time+lat+merchlat).html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(logistic-amt+time+lat+merchlat).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(로지스틱amt+time+lat+merch_lat-f1:0.98538)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(logistic-amt+time+lat+merchlat).html">
+<div class="listing-description">
+<code>merch_lat</code>과 <code>merch_long</code> 은 상점의 위도 경도, 위의 lat과 long은 고객의 ??
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(logistic-amt+time+lat+merchlat).html">
+<div class="listing-date">
+Apr 27, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8(logistic+graph).html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(logistic+graph).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(로지스틱+그래프)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(logistic+graph).html">
+<div class="listing-description">
+5 rows × 23 columns
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(logistic+graph).html">
+<div class="listing-date">
+Apr 27, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8(logistic-amt+time+citypop).html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(logistic-amt+time+citypop).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(로지스틱amt+time+city_pop-f1:0.986655)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(logistic-amt+time+citypop).html">
+<div class="listing-description">
+<code>merch_lat</code>과 <code>merch_long</code> 은 상점의 위도 경도, 위의 lat과 long은 고객의 ??
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(logistic-amt+time+citypop).html">
+<div class="listing-date">
+Apr 27, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8.df원본에서진행.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8.df원본에서진행.html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(df원본데이터)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8.df원본에서진행.html">
+<div class="listing-description">
+df에서 그냥 처음부터 샘플뽑지 않고 전체 데이터를 한번 돌려보자. f1-score가 어떻게 나오는지 기존 샘플한거랑 비교해보기
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8.df원본에서진행.html">
+<div class="listing-date">
+Apr 27, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="graph" data-listing-date-sort="1681570800000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph8.사기거래=0필터.html"> <p class="card-img-top"><img src="posts/graph8.사기거래=0필터_files/figure-html/cell-24-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8.사기거래=0필터.html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래 분석(사기거래=0제외:_df2)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8.사기거래=0필터.html">
+<div class="listing-description">
+df에서 사기거래가 한 번이라도 있었던 사람의 데이터만 모아서 학습시켜봄. 즉, 사기거래가 한번이라도 없던 사람의 데이터는 제거했다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8.사기거래=0필터.html">
+<div class="listing-date">
+Apr 16, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="graph" data-listing-date-sort="1680793200000" data-listing-file-modified-sort="1701944184929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph5-2.html"> <p class="card-img-top"><img src="posts/data:image/png;base64,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.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph5-2.html">
+<h3 class="no-anchor listing-title">
+CH5. 그래프에서의 머신러닝 문제(커뮤니티와 같은 의미 있는 구조 감지)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph5-2.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph5-2.html">
+<div class="listing-date">
+Apr 7, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts/graph3-2.html"> <p class="card-img-top"><img src="posts/graph3-2_files/figure-html/cell-8-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph3-2.html">
+<h3 class="no-anchor listing-title">
+CH3. 비지도 그래프 학습(오토인코더)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph3-2.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph3-2.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph4-1.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph4-1.html">
+<h3 class="no-anchor listing-title">
+CH4. 지도 그래프 학습(특징기반방법)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph4-1.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph4-1.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph3-3.html"> <p class="card-img-top"><img src="posts/graph3-3_files/figure-html/cell-8-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph3-3.html">
+<h3 class="no-anchor listing-title">
+CH3. 비지도 그래프 학습(그래프신경망)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph3-3.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph3-3.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="./posts/graph3-1.html"> <p class="card-img-top"><img src="posts/graph3-1_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph3-1.html">
+<h3 class="no-anchor listing-title">
+CH3. 비지도 그래프 학습(얕은 임베딩 방법)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph3-1.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph3-1.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/graph4-2.html"> <p class="card-img-top"><img src="posts/graph4-2_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph4-2.html">
+<h3 class="no-anchor listing-title">
+CH4. 지도 그래프 학습(얕은 임베딩 방법)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph4-2.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph4-2.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts/graph5-1.html"> <p class="card-img-top"><img src="posts/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb4AAAEuCAYAAADx63eqAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjMuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/Il7ecAAAACXBIWXMAAAsTAAALEwEAmpwYAAAiw0lEQVR4nO3da3BU553n8d853a3WBYSEwECQQBIXY+4tgVFA4PUIX5I1nkxsM971JZMdkdjebLGZSdVOtra2amv3hadmMhMyMySZIamdGM8sY5zaiZ1x4oySOIu42KAWFwnERSBoAhiEANNI6ss5+8IWZWPUakl9Pef7qXKVsc85PGpj/fSc5/k/f8O2bVsAALiEme0BAACQSQQfAMBVCD4AgKsQfAAAVyH4AACuQvABAFyF4AMAuArBBwBwFYIPAOAqBB8AwFUIPgCAqxB8AABXIfgAAK5C8AEAXIXgAwC4CsEHAHAVgg8A4CoEHwDAVQg+AICrEHwAAFch+AAArkLwAQBcheADALgKwQcAcBWCDwDgKgQfAMBVCD4AgKsQfAAAVyH4AACuQvABAFyF4AMAuArBBwBwFYIPAOAqBB8AwFUIPgCAq3izPQAAQPrF4pZCff0ajFnye01VlhfJ63Hn3IfgAwCH6gtHtGP/Oe1sC6mnNyyfx5RpGLJsW9G4pdkVJXqyrlJPr6xSWXFBtoebMYZt23a2BwEASJ1IzNKWluPatuu0DEMaiFrDXlvoM2XbUnNjjTY3zVeB1/mzQIIPABzk/LV+PbNtry7dGFB/gsC7U5HP1LTSQr3a3KCZZUVpHGH2EXwA4BDnr/Vrw1/v0vVbUcXH8K3dYxiaVOzTG19rdHT4OX9OCwAuEIlZembb3jGHniTFbVvXb0X17La9isaTny3mG4IPABxgS8txXboxMObQGxK3bV28MagtLSdSNLLcw6tOAMhzfeGIGl5u0WDs7rO0s9968hO/tmMRTQx8XpMffmHYZ/q9pvZ9s8mRuz0pZwCAPLdj/zkZxvD/ftYf77z991akX6G/ek7FCxoTPtMwPnzuV9fNSdUwcwavOgEgz+1sCyUsWfi4W1275SmeJH/VooTXDUQt7TwQSsXwcg7BBwB5LBa31NMbTvr6m4dbVLL4d2QkmiJ+5ExvWDEHbnIh+AAgj4X6+uVL8uix2PX3NXjuiEqWNCV1vc9jKtTXP57h5SSCDwDy2GDMkpnE7E2Sbh75pfyVC+Urm57U9aZhDLthJp8RfACQx/xeU1aSm/PDR36pCYt/J+lnW7YtvwOPMHPeVwQALlJZXpRUsflA6KjiN3tH3M35cdG4pcpy553gQvABQB7zekzNrigZ8brwkRYVz18t01+c9LOrK0oc2brIeV8RALjMk3WVKvQl/nZe8ejXNGXDHyf9zEKfqafqK8c7tJxE8AFAnnt6ZZVSfQaXbUsbV1Sl9qE5guADgDxXVlyg5sYaFY0w60tWkc+jTWtrHXlcmUTwAYAjbG6ar2mlhfIkWdowHI9haHqpX5ub5qVoZLmH4AMAByjwmnq1uUGTin1jDr+hfnzbmxuSLorPR3RnAAAHGXsHdo+ml/q1nQ7sAIB8E4lZ2tJyXH/7m1OSpET5V+QzZdnSprW12tw0z9EzvSEEHwA4kGVZevkvviP/wgf1s65rOtMbls9jyjQMWbataNxSdUWJnqqv1MYVVY7dyHI39OMDAAfq7u7W1Ekl2vT5Zfrjz3/YxSHU16/BmCW/11RleZEji9OTQfABgAO1t7dr+fLlt3/t9ZiqnjLyCS9u4M64BwAH6+/v18mTJ7V48eJsDyUnEXwA4DAdHR2aM2eOioqcvTtzrAg+AHCYO19z4pMIPgBwkMuXL+v69euaM2dOtoeSswg+AHCQgwcPaunSpTJNvr0Ph08GABzCsiwdOnRIy5Yty/ZQchrBBwAO0d3drYkTJ+qee+7J9lByGsEHAA7BppbkEHwA4ADU7iWP4AMAB6B2L3kEHwA4AK85k0fwAUCeo3ZvdAg+AMhz1O6NDp8SAOQxavdGj+ADgDxG7d7oEXwAkMfY1DJ6BB8A5Clq98aG4AOAPEXt3tgQfACQp3jNOTYEHwDkIWr3xo7gA4A8RO3e2PGJAUCeGard4zXn2BB8AJBnuru7VVpaqqlTp2Z7KHmJ4AOAPNPe3s5JLeNA8AFAHqF2b/wIPgDIIx0dHZo7dy61e+NA8AFAHuE15/gRfACQJ6jdSw2CDwDyBLV7qcGnBwB5gNq91CH4ACAPULuXOgQfAOQBNrWkDsEHADmO2r3UIvgAIMcdOXKE2r0UIvgAIMcdPHiQ15wpRPABQA6jdi/1CD4AyGHt7e3U7qUYnyQA5Chq99KD4AOAHHXq1ClNmjSJ2r0UI/gAIEexqSU9CD4AyEHU7qUPwQcAOYjavfQh+AAgB/GaM30IPgDIMdTupRfBBwA5htq99OJTBYAcQu1e+hF8AJBDqN1LP4IPAHIIm1rSj+ADgBxB7V5mEHwAkCOo3csMgg8AcgSvOTOD4AOAHEDtXuYQfACQA6jdyxw+YQDIMmr3MovgA4Aso3Yvswg+AMgyNrVkFsEHAFlE7V7mEXwAkEXU7mUewQcAWcRrzswj+AAgS6jdyw6CDwCyhNq97ODTBoAsoHYvewg+AMgCaveyh+ADgCxgU0v2EHwAkGHU7mUXwQcAGUbtXnYRfACQYbzmzC6CDwAyiNq97CP4ACCDqN3LPj55AMgQavdyA8EHABlC7V5uIPgAIEPY1JIbCD4AyABq93IHwQcAGUDtXu4g+AAgAw4ePMimlhxB8AFAml2+fFk3btxQbW1ttocCEXwAkHbU7uUW/isAQBoN1e6xmzN3EHwAkEbU7uUegg8A0ohNLbmH4AOANBmq3Vu0aFG2h4KP8WZ7AADgBLG4pVBfvwZjlvxeU5XlRdTu5SiCDwDGqC8c0Y7957SzLaSe3rB8HlOmYciybUXjliaZEf3e8ipduxVRWXFBtoeLjxi2bdvZHgQA5JNIzNKWluPatuu0DEMaiFrDXlvoM2XbUnNjjTY3zVeBlxWmbCP4AGAUzl/r1zPb9urSjQH1Jwi8OxX5TE0rLdSrzQ2aWcarz2wi+AAgSeev9WvDX+/S9VtRxcfwrdNjGJpU7NMbX2sk/LKIOTcAJCESs/TMtr1jDj1Jitu2rt+K6tltexWNJz9bRGoRfACQhC0tx3XpxsCYQ29I3LZ18cagtrScSNHIMFq86gSAEfSFI2p4uUWDseFnaRdf/RMN/rZLhumRJHkmVmjmV74/7PV+r6l932xit2cWUM4AACPYsf+cDGPk6yY/IImLnskqWcaxofP/eq6OeMcHUaLV50AMIKdbaGEJQtjMRC1tPNAKKXPRHKY8QFAArG4pZ7ecFLXXvv13+var/9evskzVbbuORXOXprw+jO9YcXilrwe5iCZRPABQAKhvn75PKai8XjC68of/LJ8FVUyPD6Fj/5G77/+PzXjy9+Rr3zGsPf4PKZCff2qnlKS6mEjAX7MAIAEBmOWzCQW+PyfuVemv1iG16cJS5rkn3mf+k/tT3iPaRgJN8wgPQg+AEjA7zVljWXzu2FISnyfZdvyc4RZxvGJA0ACleVFIxabWwM31d99QHYsItuK62bHrzR47oiKausT3heNW6os5wSXTGONDwDuor+/X8eOHVNnZ6cm2IXqU+Gw19pWXNd+s13RqyHJMOWrqNTUL/43+SbPTPh7VFeUsLElCyhgB4CP9Pf3q6urS52dnTp79qxqa2u1cOFCvfO+T3/16+6UljQU+kz90fr5+gp1fBnHjA+Aqw0MDNye2Z09e1Y1NTVaunSpnnjiCfn9fklS5a2IvvOr7pT+vrYtbVxRldJnIjkEHwDXGRgYUFdXlzo6Om6H3ZIlSz4Rdh9XVlyg5sYa/bD19KhaEQ2nyOfRHzbWcFxZlvCqE4ArDIVdZ2enenp6VF1drUWLFmn+/Pl3Dbs7RWKWHv72Ozp3tX9cB1V7DEOzJhfp7a8/IB/re1lB8AFwrMHBwdszu6GwW7hwoe69996kwu5O9ONzBoIPgKMMhV1nZ6fOnDmj2bNn357ZFRYOvzMzWWPtwO73SJ8pK9Z2OrBnHcEHIO8NDg7q+PHj6ujouB12QzO7VITdnSIxS1tajmvbrtMyDCXc7Vnk+7AAfrH3kv7mxcc0/Z6pKR8PRofgA5CXhsKus7NTp0+fTnvY3c21WxHt2H9OOw+EdKY3LJ/HlGkYsmxb0bil6ooSPVVfqY0rqnTsUJuOHTumL33pSzKS6XGEtCH4AOSNO8Nu1qxZWrhwoRYsWJCxsBtOLG4p1NevwZglv9dUZXnRJ4rTLcvSD3/4QwUCAdXXJz7RBelF8AG4q5G+kWdKJBK5HXbd3d23w+7ee+9VUVF+rZVdunRJP/rRj/TCCy9o4sSJ2R6OaxF8AG7rC3/06q4tpJ67vLqbXVGiJ+sq9fTKqrTWoN0ZdlVVVVq0aFFeht2dfvnLX+ry5cvauHEjrzyzhOADMKrNGoU+U7YtNTfWaHPTfBWkqLtAJBLRiRMn1NHRcTvshl5j5nvYfVwsFtP3v/99Pfjgg1q4cGG2h+NKBB/gcmPdnl/kMzWttFCvjmN7/lDYdXZ26tSpU6qsrNSiRYscF3Z3Onv2rF577TW99NJLjv46cxXBB7hYNgqyo9Ho7ZndUNgNzeyKi4tHPYZ89dOf/lTxeFyPP/54tofiOgQf4FKZPIJrKOw6Ozt18uRJ14bdxw0ODmrr1q36whe+oJqammwPx1UIPsCl/uznx1J+6PI3Hr739j+LRqM6efKkOjo6dPLkSc2cOVMLFy7Ufffd59qwu9Px48f1s5/9TC+++KJ8Pl+2h+MaBB/gQn3hiBpebtFgbOTQi149r9/+4GsqWbBGUzZ8Y9jr/F5Tu77xgK78tkednZ06ceIEYZeEnTt3atKkSXrooYeyPRTXoC0R4EI79p9Tsjvpr779PflnzBvxOise13/6y3/Q52sLtGjRIj366KMqKSkZ50id73Of+5y++93vavHixZoxY0a2h+MK9MQAXGhnWyipbuLhzndkFpaocPayEa+N2oYuT5yj559/XvX19YRekkpKSrR+/Xr95Cc/UTwez/ZwXIHgA1wmFrfU0xse8Tpr8Jau/b9XVf47zUk/+2xfv2Lx8a8Zus2yZctUXFysPXv2ZHsorkDwAS4T6utPqgHqtd+8ognLHpa3dErSz/Z5TIX6+sczPFcyDEOPPfaYdu/erd7e3mwPx/EIPsBlBmOWzBEW+CKXujXQc1ClK393VM82DSOpDTP4tPLycq1du1Zvvvmm2HOYXmxuAVzG7/2wP1wiA2cPK3b9kkJbvyxJsiMDkm3pwpXNmvHlLcPeZ9m2/Ck6wsyNVq1apSNHjigYDKquri7bw3Esgg9wmcryIkVHWIebsPwRldy37vavb7z7Y8WuX9LkR/5jwvuicUuV5RzBNVamaerxxx/Xj370I82bN48ODmnCj2aAy3g9pqpGCCfTVyjPhPLbfxm+QhneAnmKJyW8r7qiJCuti5xk2rRpqq+v11tvvZXtoTgWf0IBl7AsSydOnNA/dM/6Z4PTslnJL+OVLb2mYTF69KHXRueqq8c7zAhad26dXr/fd19OjRbA/FkXjVCThcX1+fgsGgDh48qAkTJigQCOjbD92rB/5il5TCjSi2LW1cUZWy57mZ1+vVhg0b9Prrr6umpibr3eWdhiPLAAeKxWI6evSogsGgLl26pMWLF6uurk7Tpk27fU26z+rE+NHBIT0IPsBBLl68qGAwqMOHD2vGjBkKBAJasGCBvN5Pv9zJZHcGjA0dHNKD4APy3MDAgI4cOaK2tjaFw2EtX75cgUBAZWVlI96bjX58GJ2uri69/fbbeuGFF+jgkCIEH5CHbNtWT0+PgsGgurq6NGfOHAUCAdXW1so0RzfrGnsHdo+ml/q1fRwd2JGcnTt3qqysTOvXr8/2UByB4APyyAcffKCDBw8qGAzK4/EoEAho6dKl4z4QOhKztKXluLbtOi3DUMIDrIt8pixb2rS2Vpub5vF6MwNu3ryp7373u3r22Wfp4JACBB+Q44bKEILBoHp6enTfffeprq5OM2fOlJFsb6EkXbsV0Y7957TzQEhnesPyeUyZhiHLthWNW6quKNFT9ZXauKJKZcUFKf29kVh7e7v27dunTZs2jXpWj08i+IAc1dvbe7sMoby8XIFAQIsWLVJBQWYCJxa3FOrr12DMkt9rqrK8iOL0LLJtW9u3b1dtba3WrFmT7eHkNYIPyCHRaFSdnZ0KBoO6cuWKli5dqkAgoKlTp2Z7aMgBfX19+ru/+zs1Nzdr8uTJ2R5O3iL4gCyzbVsXLlxQW1ubOjo6VFVVpUAgoPnz58vj8WR7eMgxe/bs0fHjx/X888+n/FW3WxB8QJb09/fr0KFDCgaDGhwcVCAQ0PLly1VaWprtoSGHWZalH/zgB6qvr6eDwxgRfEAG2bat06dPKxgM6sSJE5o3b54CgYBqamr46R1Ju3jxol555RW98MILdHAYA4IPrpTpjRvXr19Xe3u72tvb5ff7VVdXpyVLlqioiPo3jE1LS4t6e3u1cePGbA8l7xB8cI2+8Edb9dtC6rnLVv3ZFSV6sq5ST69MzVb9eDyurq4uBYNBhUIhLV68WIFAQDNmzGB2h3GLxWL63ve+p6amJt13333ZHk5eIfjgeKMpzi70mbJtqbmxRpub5qtgDN3EL1++rLa2Nh0+fFhTpkxRIBDQwoULOW4KKdfT06PXX39dL730Eh0cRoHgg6ON/TguU9NKC/VqksdxRSIRHTlyRMFgUNeuXdOyZcsUCARUUVExnuEDI3rzzTdl27Y2bNiQ7aHkDYIPjpXuA5ht21YoFFIwGNTRo0c1e/ZsBQIBzZs3j5M1kDEDAwPaunWrvvjFL6q6ujrbw8kLBB8cKZ0td8LhsA4dOqS2tjZZlqVAIKBly5axuw5Zc+zYMf3iF7+gg0OSCD44UqqbrP6HNdX6Qq1HwWBQ3d3dWrBggQKBgGbNmsVGFeSE1157TeXl5XRwSALBB8fpC0fU8HKLBmN3Dz07FlXv21s1cKZd1sBNecumq/yBL6lozophn+mRpc2zL2n1iuVavHgxGwmQc+jgkDwWIuA4O/afU6JJmG3F5Z04RdP/cuq+voOla17Tpf/+U8Vu3Zp2Hu8Xo/8Cx/UihUrCD3kpAkTJmj9+vV64403ZFnjf9PhZAQfHGdnWyhhyYJZUKiytc/IWzZNhmGqeO798k6apsGLJ4e9ZzBma+eBUDqGC6TM8uXLVVhYqD179mR7KDmN4IOjxOKWenrDo7onHu5T9Op5FUydlfC6M71hxeL8JI3cZRiGHnvsMbW2turq1avZHk7OIvjgKKG+/lF1BLfjMV35yZ9rwpIm+SqqEl7r85gK9fWPd4hAWk2ePFmNjY236/vwaQQfHGUwZslMcpelbVu68ua3JI9Xkx96YcTrTcMYdsMMkEsaGho0MDCg9vb2bA8lJxF8cBS/15SVxE+5tm2r91++o3j4mqb+3n+V4fGOeI9l2/KP4QgzINNM09Tjjz+uf/3Xf9XNmzezPZycw/FcJTK8iJFk1iHu/rzv1G095zuefK/y/T5k3p2NG6pspxuCsgP06dPV11dnd56661sDyXnEHxwFI9p6DMTE59cEbv+vm62/0yRS90K/dVzOvutJ3X2W0/qZsevEt5XXVGS1tZFQKqtW7dOFy9e1LFjx7I9lJwy8vsdIA/EYjEdPnxYe/fuVbU1QRc8kxWJ3/1a76R7NPtP3hzV8wt9pp6qr0zBSIHM8fl82rBhg3784x+rurqaGtSPcHIL8toHH3yg/fv368CBA5oxY4YaGho0eXqlGl7+ZUo3ovi9pvZ9syklffqATHvjjTdulzqAGR/y1IULF7R3714dP35cixcv1h/8wR9oypQpt/99c2NNSs/q/MPGGkIPeeuhhx7S1q1bdebMGTo4iBkf8ohlWerq6tK+ffvU19en+++/X3V1dSoq+vSGk3R2ZwDy0VAHhxdffFFer7vnPAQfct7AwICCwaDeffddTZgwQQ0NDVqwYIE8Hk/C+9Ldjw/IN6+99pomT56spqambA8lqwg+5KyrV69q3759OnTokObOnatVq1apsnJ0G0zG3oHdo+mlfm1PsgM7kA+GOjg899xzmj59eraHkzUEH3KKbds6c+aM9u7dq1AopLq6Oq1cuVKlpaVjfmYkZmlLy3Ft23VahqGEB1gX+UxZtrRpba02N83j9SYcJxgM6r333lNzc7NM051/vgk+5ISPlyNYlqWGhgYtXbo0pd2kr92KaMf+c9p5IKQzvWH5PKZMw5Bl24rGLVVXlOip+kptXFHFRhY4lm3beuWVVzR37lytXr0628PJCoIPWXW3coTa2tq0dzWPxS2F+vo1GLPk95qqLC+iOB2ucfXqVW3btk3Nzc2aPHlytoeTcQQfsuLOcoRVq1Z9ohwBQHq1trbq1KlTeu655z7xg6Ybfigk+JAxoylHAJBelmVp27ZtWrlyparnL/pwGaAtpJ67LAPMrijRk3WVenqlM5YBCD6k3VjLEQCk17nzv9XmbW+rIzZtxI1fhT5Ttv3h4RCbm+arII87lRB8SJtUlCMASI+hUp/f9t1SZBQHHBX5TE0rLdSreVzqQ/AhpdJRjgAgtdx+uAPB5wKZWKzORDkCgPHjOD8OqXasvnAkI4vVd5YjPPzwwxkpRwAwNltajuvSjYFxhZ4kxW1bF28MakvLCX3j4XtTNLrMYMbnMKM5pWQ8i9WUIwD5py8cUcPLLUm17Ap3vqNrrf+o+I3L8pSUq+Lf/mcVVi3+1HX52LKLGZ+DfPxcymT+YA+F4g9bT+unhy+MuFh9t3KERx99lHIEIE/s2H9OybyM6T8dVN+v/7em/u5/UcFn5it+8+qw1xrGh8/96ro5KRxpejHjc4h0LlZTjgA4w/q/fEcn37854nUXX/mGSpY+rInLHk7qufPumaBffP2B8Q4vY5jxOUAkZumZbXvHHHrSh+/rr9+K6tlte28vVt9ZjvDEE09QjgDkqVjcUk9veMTrbCuuwQsnVTR3lc5/b5PseETF8xpU9uB/kOnz3/WeM71hxeJW3pzwQvA5QGoXqwf0P15/T4ut0zp37pzq6ur04osvUo4A5LlQX798HlPReDzhdfHwNcmK6VZXq6Y9+6cyTI8uv/6/dH33DpU/8Pxd7/F5TIX6+lU9pSQNI089gi/P9YUj2rbrdMI1vStv/LkGzhyUFR2Qp6RcpQ1PaOKyR+56bX/U0j8G39cPHp+jJ554gnIEwCEGY5bMJBb4jI9mdRPrN8g74cMDrCeu/ELC4DMNI6l9BbmC4MtzySxWlzY8pYrPbZbh9Snae04X/+GbKpg2R/7pc+96vc/nVVd0sv4NoQc4ht9rykrirZCncII8Ez+5Q3uk8iTLtuXPoyPM8mekuKudbaGEJQuSVDB1tgzvUIgZMmQo1ndh2OsHopZ2HgilcJQAsq2yvEjReHKzsglL1uuDA28qHr6m+MBN3Xjv/6p47sphr4/GLVWW58/ubmZ8eSzZxWpJ6v35VoUPt8iODapg2hwVzVmR8Pp8W6wGkJjXY2p2RUlSuzonrXla8f4bOv+3X5Xh9alkwVpNWv37w15fXVGSV98rCL48luxitSRVPPKSJj/0VQ2eP6aBs4dleBK/xsy3xWoAI3uyrlLfbjk+4lsiw+NVxSMvqeKRl0Z8ZqHP1FP1+bXbO38iGp+S7GL1EMP0qLBqkeIfXNEHwX9JeG2+LVYDGNnTK6uU6spt25Y2rqhK7UPTjODLY8kuVn+KZSVc45Pyb7EawMjKigvU3FijIl9q/t8u8nm0aW1tXh1XJhF8eS2Zxep4+JrCne/IivTLtuLq7z6g8NF3VFi9POF9+bZYDSA5m5vma1ppoTzjPEjeYxiaXurX5qZ5KRpZ5rDGl8eSWqw2DH0QfEu9P98q2Za8k+5RedMmFc9blfDZ+bZYDSA5BV5TrzY3pOSIw+3NDXnXkkjirM68Zdu2Tp48qT/9yQH9+kqJYimcvBf6TP3R+vn6Sh4dOgtgdD5+qH3/CJtdPq7I59H0Ur+204EdmWJZljo6OtTa2irbtrVs5Wf15X++kNKNKPnYZgTA6I2mjVmRz5RlS5vW1mpz07y8nOkNIfjyRDQaVXt7u3bv3q3S0lI1NjZq7ty5MgxDf/bzY/ph6+lR/dQ2nCKfR3/YWJN3jSUBjN21Wx81rj4Q0pm7NK6urijRU/WV2rhifI2rcwXBl+MGBgb03nvvad++fZo5c6bWrFmjWbNmfeKaSMzSw99+R+eu9o/roGqPYWjW5KLb3RkAuE8sbinU16/BmCW/11RleZHj1vsJvhx18+ZN7d27V21tbZo3b55Wr16tadOmDXt9OvvxAYCTEHw55urVq9q9e7c6Ojq0ZMkSrV69WmVlZUnd6+bFagBIFsGXIy5cuKDW1lZ1d3drxYoVWrVqlUpKRn9cmFsXqwEgWQRfFtm2rZ6eHrW2turSpUtqaGhQfX29/P67dzkeDbctVgNAsgi+LLBtW11dXWptbdWtW7e0Zs0aLV26VF5ves4TcMNiNQAki+DLoHg8rsOHD6u1tVU+n0+NjY1asGCBTJMQAoBMIfgyIBKJqK2tTXv27FFFRYUaGxtVU1MzYldjAEDquTb4MvH679atW3r33Xf13nvvafbs2VqzZo1mzpyZ0t8DADA6rgq+vvBHGz7aQuq5y4aP2RUlerKuUk+vHN+Gjxs3bmjPnj1qb2/XggULtGbNGk2ZMiWFXwkAYKxcEXyj2eJf6DNl21JzY402N81XwSh60l25ckWtra06duyYli9frs9+9rMqLS1NxZcAAEgRxwff2Iu6TU0rLdSrSRR1nz9/Xrt27dLZs2d1/336/7771dREYXgAJCLHB186TzGy7ZtdXd3q7W1Vb29vVq9erUCgYAKCqiJA4Bc5tjgS9fBzZZl6ejRo2ptbVUsFtOaNWu0ePFieTyeFI4eAJAuju3AvqXluC7dGBhX6ElS3LZ18cag/vIXXWqaeku7d+9WcXGxHnjgAc2fP5+SBADIM46c8fWFI2p4uSVhc9YbB95Q+HCLIpfPqOS+BzTlsa8nfKZHlv5kwQd66IHVmj17NoEHAHnKkTO+HfvPaaRc8k6o0KTVv6/+022yo5ERn+n1emTVrFJ1dXVqBgkAyApHnpW1sy2UsGRBkorvXa3i+Z+VWZRcucFgzNbOA6FUDA8AkEWOC75Y3FJPbzgtzz7TG1YsnnxJBAAg9zgu+EJ9/WnrK+fzmAr19afl2QCAzHBc8A3GLJlp2nhiGkbCDTMAgNznuODze01Zadqoatm2/KM4wgwAkHsct6uzsrxI0STW4WwrLg39ZVuyYxHJ9Mgwhy9Ej8YtVZZzFBkA5DPHBZ/XY2p2RYlOvn8z4XXXW/+Prrf+4+1fhzt+pUlr/p3K1j4z7D3VFSV0LgeAPOfIAvbvvXNK3245PmJJw2gU+kz90fr5+sq6OSl7JgAg8xw5fXl6ZZVSHee2LW1cUZXahwIAMs6RwVdWXKDmxhoV+VLz5RX5PNq0tnZczWkBALnBkcEnSZub5mtaaaE84yxt8BiGppf6tblpXopGBgDIJscGX4HX1KvNDZpU7Btz+A3149ve3JC2ongAQGY5cnPLx429A7tH00v92p5EB3YAQP5wfPBJHzal3dJyXNt2nZZhKOFuzyKfKcuWNq2t1eamecz0AMBhXBF8Q67dimjH/nPaeSCkM71h+TymTMOQZduKxi1VV5ToqfpKbVxRxUYWAHAoVwXfx8XilkJ9/RqMWfJ7TVWWF1GcDgAu4NrgAwC4E1McAICrEHwAAFch+AAArkLwAQBcheADALgKwQcAcBWCDwDgKgQfAMBVCD4AgKsQfAAAVyH4AACuQvABAFyF4AMAuArBBwBwFYIPAOAqBB8AwFUIPgCAqxB8AABXIfgAAK5C8AEAXIXgAwC4CsEHAHCV/w91IVTHiHZc2wAAAABJRU5ErkJggg==.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph5-1.html">
+<h3 class="no-anchor listing-title">
+CH5. 그래프에서의 머신러닝 문제(링크예측)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph5-1.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph5-1.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184917" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="./posts/graph2.html"> <p class="card-img-top"><img src="posts/graph2_files/figure-html/cell-4-output-3.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph2.html">
+<h3 class="no-anchor listing-title">
+CH2. 그래프 머신러닝
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph2.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph2.html">
+<div class="listing-date">
+Apr 6, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts/graph8(frac=0.4).html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(frac=0.4).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(frac=0.4).html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(frac=0.4).html">
+<div class="listing-date">
+Apr 4, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts/graph8.html"> <p class="card-img-top"><img src="posts/graph8_files/figure-html/cell-13-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8.html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래에 대한 그래프 분석(basic)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8.html">
+<div class="listing-date">
+Apr 4, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="./posts/graph8(frac=0.3).html"> <p class="card-img-top"><img src="posts/graph8(frac=0.3)_files/figure-html/cell-15-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph8(frac=0.3).html">
+<h3 class="no-anchor listing-title">
+CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph8(frac=0.3).html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph8(frac=0.3).html">
+<div class="listing-date">
+Apr 4, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="graph" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1701944184917" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts/graph basic.html"> <p class="card-img-top"><img src="posts/graph basic_files/figure-html/cell-11-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/graph basic.html">
+<h3 class="no-anchor listing-title">
+CH1. graph basic
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graph'); return false;">
+graph
+</div>
+</div>
+<a href="./posts/graph basic.html">
+<div class="listing-description">
+그래프 머신러닝
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/graph basic.html">
+<div class="listing-date">
+Apr 1, 2023
+</div>
+<div class="listing-author">
+김보람
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
