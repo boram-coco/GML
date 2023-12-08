@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "GML",
+    "title": "Graph Machine Learning",
     "section": "",
-    "text": "CH8. 신용카드 거래에 대한 그래프 분석(교수님)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 28, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time+city_pop+lat+merch_lat-f1:0.985323)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time-f1:0.009370)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time+lat+merch_lat-f1:0.98538)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(로지스틱+그래프)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time+city_pop-f1:0.986655)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(df원본데이터)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 27, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래 분석(사기거래=0제외:_df2)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH5. 그래프에서의 머신러닝 문제(커뮤니티와 같은 의미 있는 구조 감지)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH3. 비지도 그래프 학습(오토인코더)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH4. 지도 그래프 학습(특징기반방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH3. 비지도 그래프 학습(그래프신경망)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH3. 비지도 그래프 학습(얕은 임베딩 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH4. 지도 그래프 학습(얕은 임베딩 방법)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH5. 그래프에서의 머신러닝 문제(링크예측)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH2. 그래프 머신러닝\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 6, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(basic)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 4, 2023\n\n\n김보람\n\n\n\n\n\n\n  \n\n\n\n\nCH1. graph basic\n\n\n\n\n\n\n\ngraph\n\n\n\n\n\n\n\n\n\n\n\nApr 1, 2023\n\n\n김보람\n\n\n\n\n\n\nNo matching items"
+    "text": "그래프 머신러닝\ngithub\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 28, 2023\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(교수님)\n\n\n김보람 \n\n\n\n\nApr 27, 2023\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time-f1:0.009370)\n\n\n김보람 \n\n\n\n\nApr 27, 2023\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time+lat+merch_lat-f1:0.98538)\n\n\n김보람 \n\n\n\n\nApr 27, 2023\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time+city_pop-f1:0.986655)\n\n\n김보람 \n\n\n\n\nApr 27, 2023\n\n\nCH8. 신용카드 거래 분석(로지스틱amt+time+city_pop+lat+merch_lat-f1:0.985323)\n\n\n김보람 \n\n\n\n\nApr 27, 2023\n\n\nCH8. 신용카드 거래 분석(로지스틱+그래프)\n\n\n김보람 \n\n\n\n\nApr 27, 2023\n\n\nCH8. 신용카드 거래 분석(df원본데이터)\n\n\n김보람 \n\n\n\n\nApr 16, 2023\n\n\nCH8. 신용카드 거래 분석(사기거래=0제외:_df2)\n\n\n김보람 \n\n\n\n\nApr 7, 2023\n\n\nCH5. 그래프에서의 머신러닝 문제(커뮤니티와 같은 의미 있는 구조 감지)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH5. 그래프에서의 머신러닝 문제(링크예측)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH4. 지도 그래프 학습(특징기반방법)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH4. 지도 그래프 학습(얕은 임베딩 방법)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH3. 비지도 그래프 학습(오토인코더)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH3. 비지도 그래프 학습(얕은 임베딩 방법)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH3. 비지도 그래프 학습(그래프신경망)\n\n\n김보람 \n\n\n\n\nApr 6, 2023\n\n\nCH2. 그래프 머신러닝\n\n\n김보람 \n\n\n\n\nApr 4, 2023\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)\n\n\n김보람 \n\n\n\n\nApr 4, 2023\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)\n\n\n김보람 \n\n\n\n\nApr 4, 2023\n\n\nCH8. 신용카드 거래에 대한 그래프 분석(basic)\n\n\n김보람 \n\n\n\n\nApr 1, 2023\n\n\nCH1. graph basic\n\n\n김보람 \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/graph8.df원본에서진행.html",
@@ -471,8 +471,8 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Boram-coco",
     "section": "",
-    "text": "About this blog"
+    "text": "Everyday with Coco"
   }
 ]
