@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.283">
+<meta name="generator" content="quarto-1.4.538">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,12 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -77,7 +79,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
+      page: 30,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
@@ -99,14 +102,41 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -120,18 +150,18 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Boram-coco</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -167,6 +197,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <ul>
 <li><p><a href="https://product.kyobobook.co.kr/detail/S000200738068">그래프 머신러닝</a></p></li>
 <li><p><a href="https://github.com/PacktPublishing/Graph-Machine-Learning">github</a></p></li>
@@ -191,7 +222,18 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="graph" data-listing-date-sort="1682607600000" data-listing-file-modified-sort="1701944184913" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(교수님)" data-listing-filename-sort="9999.ipynb">
+<tr data-index="0" data-listing-file-modified-sort="1702018306929" data-listing-reading-time-sort="1" data-listing-word-count-sort="45" data-listing-filename-sort="230414.ipynb">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="./posts/230414.html" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="graph" data-listing-date-sort="1682607600000" data-listing-file-modified-sort="1701944184913" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="173" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(교수님)" data-listing-filename-sort="9999.ipynb">
 <td>
 <span class="listing-date">Apr 28, 2023</span>
 </td>
@@ -202,7 +244,18 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="1" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time-f1:0.009370)" data-listing-filename-sort="graph8(logistic, amt+time).ipynb">
+<tr data-index="2" data-categories="graph" data-listing-date-sort="1682607600000" data-listing-file-modified-sort="1682674035431" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱+그래프)" data-listing-filename-sort="graph8(logistic+graph)_.ipynb">
+<td>
+<span class="listing-date">Apr 28, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8(logistic+graph)_.html" class="title listing-title">CH8. 신용카드 거래 분석(로지스틱+그래프)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="3" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="85" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time-f1:0.009370)" data-listing-filename-sort="graph8(logistic, amt+time).ipynb">
 <td>
 <span class="listing-date">Apr 27, 2023</span>
 </td>
@@ -213,7 +266,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="2" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time+lat+merch_lat-f1:0.98538)" data-listing-filename-sort="graph8(logistic-amt+time+lat+merchlat).ipynb">
+<tr data-index="4" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time+lat+merch_lat-f1:0.98538)" data-listing-filename-sort="graph8(logistic-amt+time+lat+merchlat).ipynb">
 <td>
 <span class="listing-date">Apr 27, 2023</span>
 </td>
@@ -224,7 +277,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="3" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time+city_pop-f1:0.986655)" data-listing-filename-sort="graph8(logistic-amt+time+citypop).ipynb">
+<tr data-index="5" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="46" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time+city_pop-f1:0.986655)" data-listing-filename-sort="graph8(logistic-amt+time+citypop).ipynb">
 <td>
 <span class="listing-date">Apr 27, 2023</span>
 </td>
@@ -235,7 +288,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="4" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time+city_pop+lat+merch_lat-f1:0.985323)" data-listing-filename-sort="graph8(logistic-amt+time+citypop+lat+merchlat).ipynb">
+<tr data-index="6" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱amt+time+city_pop+lat+merch_lat-f1:0.985323)" data-listing-filename-sort="graph8(logistic-amt+time+citypop+lat+merchlat).ipynb">
 <td>
 <span class="listing-date">Apr 27, 2023</span>
 </td>
@@ -246,7 +299,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="5" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱+그래프)" data-listing-filename-sort="graph8(logistic+graph).ipynb">
+<tr data-index="7" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="CH8. 신용카드 거래 분석(로지스틱+그래프)" data-listing-filename-sort="graph8(logistic+graph).ipynb">
 <td>
 <span class="listing-date">Apr 27, 2023</span>
 </td>
@@ -257,7 +310,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="6" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(df원본데이터)" data-listing-filename-sort="graph8.df원본에서진행.ipynb">
+<tr data-index="8" data-categories="graph" data-listing-date-sort="1682521200000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="34" data-listing-title-sort="CH8. 신용카드 거래 분석(df원본데이터)" data-listing-filename-sort="graph8.df원본에서진행.ipynb">
 <td>
 <span class="listing-date">Apr 27, 2023</span>
 </td>
@@ -268,7 +321,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="7" data-categories="graph" data-listing-date-sort="1681570800000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH8. 신용카드 거래 분석(사기거래=0제외:_df2)" data-listing-filename-sort="graph8.사기거래=0필터.ipynb">
+<tr data-index="9" data-categories="graph" data-listing-date-sort="1681570800000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="CH8. 신용카드 거래 분석(사기거래=0제외:_df2)" data-listing-filename-sort="graph8.사기거래=0필터.ipynb">
 <td>
 <span class="listing-date">Apr 16, 2023</span>
 </td>
@@ -279,7 +332,29 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="8" data-categories="graph" data-listing-date-sort="1680793200000" data-listing-file-modified-sort="1701944184929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH5. 그래프에서의 머신러닝 문제(커뮤니티와 같은 의미 있는 구조 감지)" data-listing-filename-sort="graph5-2.ipynb">
+<tr data-index="10" data-categories="graph" data-listing-date-sort="1681225200000" data-listing-file-modified-sort="1681446876074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="177" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(under-sampling)" data-listing-filename-sort="graph8(over-sampling)syn.ipynb">
+<td>
+<span class="listing-date">Apr 12, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8(over-sampling)syn.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석(under-sampling)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="11" data-categories="graph" data-listing-date-sort="1681225200000" data-listing-file-modified-sort="1681450261489" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(over-sampling)" data-listing-filename-sort="graph8(over-sampling).ipynb">
+<td>
+<span class="listing-date">Apr 12, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8(over-sampling).html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석(over-sampling)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="12" data-categories="graph" data-listing-date-sort="1680793200000" data-listing-file-modified-sort="1701944184929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="165" data-listing-title-sort="CH5. 그래프에서의 머신러닝 문제(커뮤니티와 같은 의미 있는 구조 감지)" data-listing-filename-sort="graph5-2.ipynb">
 <td>
 <span class="listing-date">Apr 7, 2023</span>
 </td>
@@ -290,7 +365,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="9" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="CH5. 그래프에서의 머신러닝 문제(링크예측)" data-listing-filename-sort="graph5-1.ipynb">
+<tr data-index="13" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="312" data-listing-title-sort="CH5. 그래프에서의 머신러닝 문제(링크예측)" data-listing-filename-sort="graph5-1.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -301,7 +376,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="10" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH4. 지도 그래프 학습(특징기반방법)" data-listing-filename-sort="graph4-1.ipynb">
+<tr data-index="14" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88" data-listing-title-sort="CH4. 지도 그래프 학습(특징기반방법)" data-listing-filename-sort="graph4-1.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -312,7 +387,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="11" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH4. 지도 그래프 학습(얕은 임베딩 방법)" data-listing-filename-sort="graph4-2.ipynb">
+<tr data-index="15" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="165" data-listing-title-sort="CH4. 지도 그래프 학습(얕은 임베딩 방법)" data-listing-filename-sort="graph4-2.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -323,7 +398,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="12" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="CH3. 비지도 그래프 학습(오토인코더)" data-listing-filename-sort="graph3-2.ipynb">
+<tr data-index="16" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210" data-listing-title-sort="CH3. 비지도 그래프 학습(오토인코더)" data-listing-filename-sort="graph3-2.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -334,7 +409,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="13" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1702010692511" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="CH3. 비지도 그래프 학습(얕은 임베딩 방법)" data-listing-filename-sort="graph3-1.ipynb">
+<tr data-index="17" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1702010692511" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="474" data-listing-title-sort="CH3. 비지도 그래프 학습(얕은 임베딩 방법)" data-listing-filename-sort="graph3-1.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -345,7 +420,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="14" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="CH3. 비지도 그래프 학습(그래프신경망)" data-listing-filename-sort="graph3-3.ipynb">
+<tr data-index="18" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="124" data-listing-title-sort="CH3. 비지도 그래프 학습(그래프신경망)" data-listing-filename-sort="graph3-3.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -356,7 +431,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="15" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184917" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="CH2. 그래프 머신러닝" data-listing-filename-sort="graph2.ipynb">
+<tr data-index="19" data-categories="graph" data-listing-date-sort="1680706800000" data-listing-file-modified-sort="1701944184917" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427" data-listing-title-sort="CH2. 그래프 머신러닝" data-listing-filename-sort="graph2.ipynb">
 <td>
 <span class="listing-date">Apr 6, 2023</span>
 </td>
@@ -367,7 +442,18 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="16" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)" data-listing-filename-sort="graph8(frac=0.4).ipynb">
+<tr data-index="20" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1702018296333" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(undersampling-cluster)" data-listing-filename-sort="graph8(undersampling cluster).ipynb">
+<td>
+<span class="listing-date">Apr 4, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8(undersampling cluster).html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석(undersampling-cluster)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="21" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="231" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)" data-listing-filename-sort="graph8(frac=0.4).ipynb">
 <td>
 <span class="listing-date">Apr 4, 2023</span>
 </td>
@@ -378,7 +464,18 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="17" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)" data-listing-filename-sort="graph8(frac=0.3).ipynb">
+<tr data-index="22" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1681300967287" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="231" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)" data-listing-filename-sort="graph8(frac=0.4)_.ipynb">
+<td>
+<span class="listing-date">Apr 4, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8(frac=0.4)_.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.4)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="23" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)" data-listing-filename-sort="graph8(frac=0.3).ipynb">
 <td>
 <span class="listing-date">Apr 4, 2023</span>
 </td>
@@ -389,7 +486,18 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="18" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(basic)" data-listing-filename-sort="graph8.ipynb">
+<tr data-index="24" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1702018305041" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="422" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)" data-listing-filename-sort="graph8(frac=0.3) yhat건든거.ipynb">
+<td>
+<span class="listing-date">Apr 4, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8(frac=0.3) yhat건든거.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석(frac=0.3)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="25" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1701944184933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="321" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(basic)" data-listing-filename-sort="graph8.ipynb">
 <td>
 <span class="listing-date">Apr 4, 2023</span>
 </td>
@@ -400,7 +508,40 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="19" data-categories="graph" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1701944184917" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="CH1. graph basic" data-listing-filename-sort="graph basic.ipynb">
+<tr data-index="26" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1681300161706" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="320" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석(0.4)" data-listing-filename-sort="graph8-3.ipynb">
+<td>
+<span class="listing-date">Apr 4, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8-3.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석(0.4)</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="27" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1681284920699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석" data-listing-filename-sort="graph8-1.ipynb">
+<td>
+<span class="listing-date">Apr 4, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8-1.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="28" data-categories="graph" data-listing-date-sort="1680534000000" data-listing-file-modified-sort="1681452216561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석" data-listing-filename-sort="graph8_.ipynb">
+<td>
+<span class="listing-date">Apr 4, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8_.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="29" data-categories="graph" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1701944184917" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="330" data-listing-title-sort="CH1. graph basic" data-listing-filename-sort="graph basic.ipynb">
 <td>
 <span class="listing-date">Apr 1, 2023</span>
 </td>
@@ -411,11 +552,25 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
+<tr data-index="30" data-categories="graph" data-listing-date-sort="1673967600000" data-listing-file-modified-sort="1705568043113" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="583" data-listing-title-sort="CH8. 신용카드 거래에 대한 그래프 분석_코드뜯기" data-listing-filename-sort="graph8_코드뜯기.ipynb">
+<td>
+<span class="listing-date">Jan 18, 2023</span>
+</td>
+<td>
+<a href="./posts/graph8_코드뜯기.html" class="title listing-title">CH8. 신용카드 거래에 대한 그래프 분석_코드뜯기</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -545,15 +700,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -561,6 +729,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const anchorLink = note.querySelector('a.anchorjs-link');
       if (anchorLink) {
         anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
       }
       return note.innerHTML;
     }
@@ -604,6 +775,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -675,6 +869,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {

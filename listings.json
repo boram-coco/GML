@@ -2,7 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/230414.html",
       "/posts/9999.html",
+      "/posts/graph8(logistic+graph)_.html",
       "/posts/graph8(logistic, amt+time).html",
       "/posts/graph8(logistic-amt+time+lat+merchlat).html",
       "/posts/graph8(logistic-amt+time+citypop).html",
@@ -10,6 +12,8 @@
       "/posts/graph8(logistic+graph).html",
       "/posts/graph8.df원본에서진행.html",
       "/posts/graph8.사기거래=0필터.html",
+      "/posts/graph8(over-sampling)syn.html",
+      "/posts/graph8(over-sampling).html",
       "/posts/graph5-2.html",
       "/posts/graph5-1.html",
       "/posts/graph4-1.html",
@@ -18,10 +22,17 @@
       "/posts/graph3-1.html",
       "/posts/graph3-3.html",
       "/posts/graph2.html",
+      "/posts/graph8(undersampling cluster).html",
       "/posts/graph8(frac=0.4).html",
+      "/posts/graph8(frac=0.4)_.html",
       "/posts/graph8(frac=0.3).html",
+      "/posts/graph8(frac=0.3) yhat건든거.html",
       "/posts/graph8.html",
-      "/posts/graph basic.html"
+      "/posts/graph8-3.html",
+      "/posts/graph8-1.html",
+      "/posts/graph8_.html",
+      "/posts/graph basic.html",
+      "/posts/graph8_코드뜯기.html"
     ]
   }
 ]

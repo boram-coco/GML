@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.283">
+<meta name="generator" content="quarto-1.4.538">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -81,12 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -95,18 +96,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -114,8 +143,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
@@ -129,18 +158,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Boram-coco</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -187,6 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -507,10 +537,18 @@ Name: is_fraud, dtype: int64</code></pre>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    degrees.plot.hist()</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    plt.yscale(<span class="st">"log"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-13-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><code>-</code> 각 그래프 간선 가중치 분포</p>
@@ -540,7 +578,11 @@ Name: is_fraud, dtype: int64</code></pre>
 <pre><code>KeyboardInterrupt: </code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-16-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 1000x1000 with 0 Axes&gt;</code></pre>
@@ -607,27 +649,28 @@ Length: 96, dtype: int64</code></pre>
 </ul>
 <div id="40b56032-6819-430b-a508-d48f3b272d23" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>communities.value_counts().plot.hist(bins<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
-<pre><code>&lt;Axes: ylabel='Frequency'&gt;</code></pre>
-</div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <ul>
 <li>2500부근에 형성되었고 ..</li>
 </ul>
 <div id="54c1f5a9-235a-46ba-b1d2-a80785886446" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>graphs <span class="op">=</span> [] <span class="co"># 부분그래프 저장</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {}  <span class="co"># 부정 거래 비율 저장 </span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> communities.unique():</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> nx.subgraph(G, communities[communities<span class="op">==</span>x].index)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    fraud_edges <span class="op">=</span> <span class="bu">sum</span>(nx.get_edge_attributes(tmp, <span class="st">"label"</span>).values())</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    ratio <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> fraud_edges <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> (fraud_edges<span class="op">/</span>tmp.number_of_edges())<span class="op">*</span><span class="dv">100</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    d[x] <span class="op">=</span> ratio</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    graphs <span class="op">+=</span> [tmp]</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>pd.Series(d).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>graphs <span class="op">=</span> [] <span class="co"># 부분그래프 저장</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {}  <span class="co"># 부정 거래 비율 저장 </span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> communities.unique():</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> nx.subgraph(G, communities[communities<span class="op">==</span>x].index)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    fraud_edges <span class="op">=</span> <span class="bu">sum</span>(nx.get_edge_attributes(tmp, <span class="st">"label"</span>).values())</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    ratio <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> fraud_edges <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> (fraud_edges<span class="op">/</span>tmp.number_of_edges())<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    d[x] <span class="op">=</span> ratio</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    graphs <span class="op">+=</span> [tmp]</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>pd.Series(d).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>48    8.684864
 13    6.956522
@@ -649,15 +692,19 @@ Length: 96, dtype: float64</code></pre>
 <li><p>하위 그래프: 모든 간선 수에 대한 사기 거래 간선 수의 비율로 사기 거래 백분율 계싼</p></li>
 </ul>
 <div id="21ccf12c-ada2-4db0-9ea6-614081a87024" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>gId <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>gId <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <ul>
@@ -665,24 +712,29 @@ Length: 96, dtype: float64</code></pre>
 <li><p>특정 커뮤니티 인덱스 gId가 주어지면 해당 커뮤니티에서 사용 가능한 노드로 유도 하위 그래프 추출하고 얻는다.</p></li>
 </ul>
 <div id="1822b5a1-a8f3-461e-a544-c5c9bef1b6cc" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>gId <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>gId <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>spring_pos <span class="op">=</span> nx.spring_layout(graphs[gId])</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>edge_colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">"g"</span> <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(graphs[gId], <span class="st">'label'</span>).values()]  <span class="co">#r:빨간색, g:녹색</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(graphs[gId], pos<span class="op">=</span>spring_pos, node_color<span class="op">=</span>default_node_color, </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                 edge_color<span class="op">=</span>edge_colors, with_labels<span class="op">=</span><span class="va">False</span>, node_size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <div id="18ed43c5-00b1-490b-bb87-d9afa068981a" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pd.Series(d).plot.hist(bins<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
-<pre><code>&lt;Axes: ylabel='Frequency'&gt;</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>pd.Series(d).plot.hist(bins<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="graph8_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="graph8_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -695,19 +747,19 @@ Length: 96, dtype: float64</code></pre>
 <section id="지도학습" class="level3">
 <h3 class="anchored" data-anchor-id="지도학습">지도학습</h3>
 <div id="2e9f5acd-e59d-44ca-972c-aba3f14b729c" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>df_majority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">0</span>]</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>df_minority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">1</span>]</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>df_maj_dowsampled <span class="op">=</span> resample(df_majority,</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                             n_samples<span class="op">=</span><span class="bu">len</span>(df_minority),</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>                             random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>df_downsampled <span class="op">=</span> pd.concat([df_minority, df_maj_dowsampled])</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_downsampled.is_fraud.value_counts())</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>G_down <span class="op">=</span> build_graph_bipartite(df_downsampled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df_majority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">0</span>]</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df_minority <span class="op">=</span> df[df.is_fraud<span class="op">==</span><span class="dv">1</span>]</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>df_maj_dowsampled <span class="op">=</span> resample(df_majority,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                             n_samples<span class="op">=</span><span class="bu">len</span>(df_minority),</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>                             random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>df_downsampled <span class="op">=</span> pd.concat([df_minority, df_maj_dowsampled])</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_downsampled.is_fraud.value_counts())</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>G_down <span class="op">=</span> build_graph_bipartite(df_downsampled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1    6006
 0    6006
@@ -715,13 +767,13 @@ Name: is_fraud, dtype: int64</code></pre>
 </div>
 </div>
 <div id="0c66a3ff-780e-4634-86a3-d6ea785b56ea" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>(df_downsampled.is_fraud <span class="op">==</span> <span class="dv">0</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>(df_downsampled.is_fraud <span class="op">==</span> <span class="dv">0</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>12012</code></pre>
 </div>
 </div>
 <div id="04882cbe-529f-420f-b796-0e78fc2df60f" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>G_down.number_of_edges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>G_down.number_of_edges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>&lt;bound method Graph.number_of_edges of &lt;networkx.classes.graph.Graph object at 0x7f71b080c430&gt;&gt;</code></pre>
 </div>
@@ -732,21 +784,21 @@ Name: is_fraud, dtype: int64</code></pre>
 <li><p>데이터 불균형을 처리하기 위해서</p></li>
 </ul>
 <div id="b3a43a7b-30ff-4de4-98aa-bef38365830c" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>train_edges, test_edges, train_labels, test_labels <span class="op">=</span> train_test_split(<span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(G_down.edges))), </span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                                                                      <span class="bu">list</span>(nx.get_edge_attributes(G_down, <span class="st">"label"</span>).values()), </span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                                                                      test_size<span class="op">=</span><span class="fl">0.20</span>, </span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                                                                      random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>train_edges, test_edges, train_labels, test_labels <span class="op">=</span> train_test_split(<span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(G_down.edges))), </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>                                                                      <span class="bu">list</span>(nx.get_edge_attributes(G_down, <span class="st">"label"</span>).values()), </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                                                                      test_size<span class="op">=</span><span class="fl">0.20</span>, </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                                                                      random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="3ecbfefb-fd75-4b34-b45e-4e6f70cdcff0" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>edgs <span class="op">=</span> <span class="bu">list</span>(G_down.edges)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>train_graph <span class="op">=</span> G_down.edge_subgraph([edgs[x] <span class="cf">for</span> x <span class="kw">in</span> train_edges]).copy()</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>train_graph.add_nodes_from(<span class="bu">list</span>(<span class="bu">set</span>(G_down.nodes) <span class="op">-</span> <span class="bu">set</span>(train_graph.nodes)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>edgs <span class="op">=</span> <span class="bu">list</span>(G_down.edges)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>train_graph <span class="op">=</span> G_down.edge_subgraph([edgs[x] <span class="cf">for</span> x <span class="kw">in</span> train_edges]).copy()</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>train_graph.add_nodes_from(<span class="bu">list</span>(<span class="bu">set</span>(G_down.nodes) <span class="op">-</span> <span class="bu">set</span>(train_graph.nodes)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="770085b1-fbfc-4511-813c-5a25a7d54355" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>train_graph.number_of_edges(), train_graph.number_of_nodes()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>train_graph.number_of_edges(), train_graph.number_of_nodes()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>(9351, 1624)</code></pre>
 </div>
@@ -755,7 +807,7 @@ Name: is_fraud, dtype: int64</code></pre>
 <li>데이터 8:2 비율로 학습 검증</li>
 </ul>
 <div id="2a0189fa-7329-4dda-9703-21a1b63e2010" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>pip install node2vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>pip install node2vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Collecting node2vec
   Downloading node2vec-0.4.6-py3-none-any.whl (7.0 kB)
@@ -784,11 +836,11 @@ Note: you may need to restart the kernel to use updated packages.</code></pre>
 </div>
 </div>
 <div id="ab4daf40-17bb-4ddc-a0ae-ddf7b5449d8c" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>node2vec_train <span class="op">=</span> Node2Vec(train_graph, weight_key<span class="op">=</span><span class="st">'weight'</span>)</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>model_train <span class="op">=</span> node2vec_train.fit(window<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> node2vec <span class="im">import</span> Node2Vec</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> node2vec.edges <span class="im">import</span> HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>node2vec_train <span class="op">=</span> Node2Vec(train_graph, weight_key<span class="op">=</span><span class="st">'weight'</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>model_train <span class="op">=</span> node2vec_train.fit(window<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"afa250d57cc445499c6cbe06f06fe288","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -802,24 +854,24 @@ Note: you may need to restart the kernel to use updated packages.</code></pre>
 <li>Node2Vec 알고리즘 사용해 특징 공간 구축</li>
 </ul>
 <div id="6182fb3a-d48e-4853-86df-85da6b2173e0" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier </span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder]</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cl <span class="kw">in</span> classes:</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    embeddings_train <span class="op">=</span> cl(keyed_vectors<span class="op">=</span>model_train.wv) </span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>    train_embeddings <span class="op">=</span> [embeddings_train[<span class="bu">str</span>(edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> train_edges]</span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>    test_embeddings <span class="op">=</span> [embeddings_train[<span class="bu">str</span>(edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> test_edges]</span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>    rf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">42</span>) </span>
-<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>    rf.fit(train_embeddings, train_labels)<span class="op">;</span> </span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> rf.predict(test_embeddings)</span>
-<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(cl)</span>
-<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Precision:'</span>, metrics.precision_score(test_labels, y_pred)) </span>
-<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Recall:'</span>, metrics.recall_score(test_labels, y_pred)) </span>
-<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'F1-Score:'</span>, metrics.f1_score(test_labels, y_pred)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder]</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cl <span class="kw">in</span> classes:</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    embeddings_train <span class="op">=</span> cl(keyed_vectors<span class="op">=</span>model_train.wv) </span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>    train_embeddings <span class="op">=</span> [embeddings_train[<span class="bu">str</span>(edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> train_edges]</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>    test_embeddings <span class="op">=</span> [embeddings_train[<span class="bu">str</span>(edgs[x][<span class="dv">0</span>]), <span class="bu">str</span>(edgs[x][<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> test_edges]</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    rf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">42</span>) </span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    rf.fit(train_embeddings, train_labels)<span class="op">;</span> </span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> rf.predict(test_embeddings)</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(cl)</span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Precision:'</span>, metrics.precision_score(test_labels, y_pred)) </span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Recall:'</span>, metrics.recall_score(test_labels, y_pred)) </span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'F1-Score:'</span>, metrics.f1_score(test_labels, y_pred)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'node2vec.edges.HadamardEmbedder'&gt;
 Precision: 0.6953125
@@ -852,8 +904,8 @@ F1-Score: 0.04713804713804714</code></pre>
 <li><p>지도학습과의 차이점은 특징 공간이 학습-검증 분할을 안함.</p></li>
 </ul>
 <div id="ab1996fe-51e5-48ba-b8d0-fef9832a19c1" class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>nod2vec_unsup <span class="op">=</span> Node2Vec(G_down, weight_key<span class="op">=</span><span class="st">'weight'</span>)</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>unsup_vals <span class="op">=</span> nod2vec_unsup.fit(window<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>nod2vec_unsup <span class="op">=</span> Node2Vec(G_down, weight_key<span class="op">=</span><span class="st">'weight'</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>unsup_vals <span class="op">=</span> nod2vec_unsup.fit(window<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"364a0146133e4594b178e25e808795dc","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -867,28 +919,28 @@ F1-Score: 0.04713804713804714</code></pre>
 <li>다운샘플링 절차에 전체 그래프 알고리즘 계산</li>
 </ul>
 <div id="780618b6-d3ff-4d36-a277-5ab6ab3f1c5f" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder]</span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>true_labels <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(G_down, <span class="st">"label"</span>).values()]</span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cl <span class="kw">in</span> classes:</span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    embedding_edge <span class="op">=</span> cl(keyed_vectors<span class="op">=</span>unsup_vals.wv) </span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>    embedding <span class="op">=</span> [embedding_edge[<span class="bu">str</span>(x[<span class="dv">0</span>]), <span class="bu">str</span>(x[<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> G_down.edges()]</span>
-<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(<span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>).fit(embedding)</span>
-<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>    nmi <span class="op">=</span> metrics.adjusted_mutual_info_score(true_labels, kmeans.labels_)</span>
-<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>    ho <span class="op">=</span> metrics.homogeneity_score(true_labels, kmeans.labels_)</span>
-<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>    co <span class="op">=</span> metrics.completeness_score(true_labels, kmeans.labels_)</span>
-<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a>    vmeasure <span class="op">=</span> metrics.v_measure_score(true_labels, kmeans.labels_)</span>
-<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(cl)</span>
-<span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'NMI:'</span>, nmi)</span>
-<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Homogeneity:'</span>, ho)</span>
-<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Completeness:'</span>, co)</span>
-<span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'V-Measure:'</span>, vmeasure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [HadamardEmbedder, AverageEmbedder, WeightedL1Embedder, WeightedL2Embedder]</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>true_labels <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> nx.get_edge_attributes(G_down, <span class="st">"label"</span>).values()]</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cl <span class="kw">in</span> classes:</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    embedding_edge <span class="op">=</span> cl(keyed_vectors<span class="op">=</span>unsup_vals.wv) </span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    embedding <span class="op">=</span> [embedding_edge[<span class="bu">str</span>(x[<span class="dv">0</span>]), <span class="bu">str</span>(x[<span class="dv">1</span>])] <span class="cf">for</span> x <span class="kw">in</span> G_down.edges()]</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(<span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>).fit(embedding)</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>    nmi <span class="op">=</span> metrics.adjusted_mutual_info_score(true_labels, kmeans.labels_)</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>    ho <span class="op">=</span> metrics.homogeneity_score(true_labels, kmeans.labels_)</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    co <span class="op">=</span> metrics.completeness_score(true_labels, kmeans.labels_)</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>    vmeasure <span class="op">=</span> metrics.v_measure_score(true_labels, kmeans.labels_)</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(cl)</span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'NMI:'</span>, nmi)</span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Homogeneity:'</span>, ho)</span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Completeness:'</span>, co)</span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'V-Measure:'</span>, vmeasure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/coco/anaconda3/envs/py38/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
@@ -1057,15 +1109,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1073,6 +1138,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const anchorLink = note.querySelector('a.anchorjs-link');
       if (anchorLink) {
         anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
       }
       return note.innerHTML;
     }
@@ -1116,6 +1184,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1187,6 +1278,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
