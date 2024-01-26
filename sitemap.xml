@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://boram-coco.github.io/GML/posts/graph8_코드뜯기.html</loc>
-    <lastmod>2024-01-18T08:54:03.113Z</lastmod>
+    <lastmod>2024-01-18T10:17:42.188Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/GML/posts/graph5-1.html</loc>
@@ -45,52 +45,56 @@
     <lastmod>2023-12-07T10:16:24.933Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph3-3.html</loc>
-    <lastmod>2023-12-07T10:16:24.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph8(logistic+graph)_.html</loc>
-    <lastmod>2023-04-28T09:27:15.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph8-1.html</loc>
-    <lastmod>2023-04-12T07:35:20.699Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph4-1.html</loc>
-    <lastmod>2023-12-07T10:16:24.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph8(over-sampling).html</loc>
-    <lastmod>2023-04-14T05:31:01.489Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph8(undersampling cluster).html</loc>
-    <lastmod>2023-12-08T06:51:36.333Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph3-2.html</loc>
-    <lastmod>2023-12-07T10:16:24.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph8-3.html</loc>
-    <lastmod>2023-04-12T11:49:21.706Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/9999.html</loc>
-    <lastmod>2023-12-07T10:16:24.913Z</lastmod>
-  </url>
-  <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph basic.html</loc>
-    <lastmod>2023-12-07T10:16:24.917Z</lastmod>
+    <loc>https://boram-coco.github.io/GML/posts/graph8(logistic-amt+time+citypop+lat+merchlat).html</loc>
+    <lastmod>2023-12-07T10:16:24.933Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/GML/posts/graph8(over-sampling)syn.html</loc>
     <lastmod>2023-04-14T04:34:36.074Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/GML/posts/graph8(logistic-amt+time+citypop+lat+merchlat).html</loc>
-    <lastmod>2023-12-07T10:16:24.933Z</lastmod>
+    <loc>https://boram-coco.github.io/GML/posts/graph basic.html</loc>
+    <lastmod>2023-12-07T10:16:24.917Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/9999.html</loc>
+    <lastmod>2023-12-07T10:16:24.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph8-3.html</loc>
+    <lastmod>2023-04-12T11:49:21.706Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph3-2.html</loc>
+    <lastmod>2023-12-07T10:16:24.925Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph8(undersampling cluster).html</loc>
+    <lastmod>2023-12-08T06:51:36.333Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph8(over-sampling).html</loc>
+    <lastmod>2023-04-14T05:31:01.489Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph4-1.html</loc>
+    <lastmod>2023-12-07T10:16:24.925Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph8-1.html</loc>
+    <lastmod>2023-04-12T07:35:20.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph8(logistic+graph)_.html</loc>
+    <lastmod>2023-04-28T09:27:15.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph3-3.html</loc>
+    <lastmod>2023-12-07T10:16:24.925Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/GML/posts/graph8-tripartite.html</loc>
+    <lastmod>2024-01-26T05:07:10.523Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/GML/posts/graph8(logistic-amt+time+lat+merchlat).html</loc>
@@ -110,7 +114,7 @@
   </url>
   <url>
     <loc>https://boram-coco.github.io/GML/posts/graph8.html</loc>
-    <lastmod>2023-12-07T10:16:24.933Z</lastmod>
+    <lastmod>2024-01-26T05:29:43.032Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/GML/posts/graph8(frac=0.3) yhat건든거.html</loc>

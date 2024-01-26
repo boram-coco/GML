@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/230414.html",
+      "/posts/graph8.html",
       "/posts/9999.html",
       "/posts/graph8(logistic+graph)_.html",
       "/posts/graph8(logistic, amt+time).html",
@@ -27,7 +28,7 @@
       "/posts/graph8(frac=0.4)_.html",
       "/posts/graph8(frac=0.3).html",
       "/posts/graph8(frac=0.3) yhat건든거.html",
-      "/posts/graph8.html",
+      "/posts/graph8-tripartite.html",
       "/posts/graph8-3.html",
       "/posts/graph8-1.html",
       "/posts/graph8_.html",
